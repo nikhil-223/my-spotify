@@ -2,43 +2,64 @@
 
 let songlist = [
 	{
-		songName: "Is this love ",
-		filePath: "songs/1.mp3",
-		coverPath: "./covers/1.jpg"
+		songName: "Aise Kyun ",
+		filePath: "songs/Aise Kyun .mp3",
+		coverPath: "./covers/1.jpg",
 	},
 	{
-		songName: "Hai mera dil",
-		filePath: "songs/2.mp3",
-		coverPath: "./covers/2.jpg"
+		songName: "Gul",
+		filePath: "songs/Anuv Jain.mp3",
+		coverPath: "./covers/2.jpg",
 	},
 	{
-		songName: "aye khuda",
-		filePath: "songs/3.mp3",
-		coverPath: "./covers/3.jpg"
+		songName: "flute",
+		filePath: "songs/flute.mp3",
+		coverPath: "./covers/3.jpg",
 	},
-	{ songName: "aise kyu", filePath: "songs/4.mp3", coverPath: "./covers/4.jpg" },
-	{ songName: "hjhk", filePath: "songs/5.mp3", coverPath: "./covers/5.jpg" },
 	{
-		songName: "love like this ",
-		filePath: "songs/6.mp3",
-		coverPath: "./covers/6.jpg"
+		songName: "Haaye Oye",
+		filePath: "songs/Haaye Oye.mp3",
+		coverPath: "./covers/4.jpg",
 	},
-	{ songName: "iraadey", filePath: "songs/7.mp3", coverPath: "./covers/7.jpg" },
-	{ songName: "bikhra", filePath: "songs/8.mp3", coverPath: "./covers/8.jpg" },
-	{ songName: "gul", filePath: "songs/9.mp3", coverPath: "./covers/9.jpg" },
 	{
-		songName: "thinking out loud",
-		filePath: "songs/10.mp3",
-		coverPath: "./covers/10.jpg"
-	}
+		songName: "Iraaday Song Abdul Hannan",
+		filePath: "songs/Iraaday Song Abdul Hannan.mp3",
+		coverPath: "./covers/5.jpg",
+	},
+	{
+		songName: "kuch na kari",
+		filePath: "songs/kuch na kari.mp3",
+		coverPath: "./covers/6.jpg",
+	},
+	{
+		songName: "Raataan Lambiyan",
+		filePath: "songs/Raataan Lambiyan.mp3",
+		coverPath: "./covers/7.jpg",
+	},
+	{
+		songName: "Ranjha",
+		filePath: "songs/Ranjha.mp3",
+		coverPath: "./covers/8.jpg",
+	},
+	{
+		songName: "Yeh Saari Baat",
+		filePath: "songs/Yeh Saari Baat.mp3",
+		coverPath: "./covers/9.jpg",
+	},
+	{
+		songName: "flute music",
+		filePath: "songs/flute music.mp3",
+		coverPath: "./covers/10.jpg",
+	},
 ];
 let gif = document.getElementById("gif");
 let masterplay = document.getElementById("masterplay");
 let progressBar = document.getElementById("myProgressBar");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
-let songPlay = new Audio(`./songs/1.mp3`);
+let songPlay = new Audio(`./songs/Aise Kyun .mp3`);
 let forwardbtn= document.getElementById("forwardd")
 let backwardbtn= document.getElementById("backwardd")
+let filepath=0;
 
 songItems.forEach((element, i) => {
 	element.getElementsByTagName("img")[0].src = songlist[i].coverPath;
@@ -46,8 +67,26 @@ songItems.forEach((element, i) => {
 });
 
 forwardbtn.addEventListener("click",()=>{
-
-        filepath =parseInt(e.target.id) ;
+		if(filepath>9){
+			filepath=0;
+		}
+		else{
+			filepath+=1;
+		}
+		songPlay.src = songlist[filepath].filePath;
+		songPlay.currentTime = 0;
+		songPlay.play();
+		masterplay.classList.add("fa-pause");
+		masterplay.classList.remove("fa-play");
+		gif.style.opacity = 1;
+})
+backwardbtn.addEventListener("click",()=>{
+		if(filepath<0){
+			filepath=9;
+		}
+		else{
+			filepath-=1;
+		}
 		songPlay.src = songlist[filepath].filePath;
 		songPlay.currentTime = 0;
 		songPlay.play();
