@@ -12,7 +12,7 @@ let songlist = [
 		coverPath: "./covers/2.jpg",
 	},
 	{
-		songName: "flute",
+		songName: "Flute",
 		filePath: "songs/flute.mp3",
 		coverPath: "./covers/3.jpg",
 	},
@@ -27,7 +27,7 @@ let songlist = [
 		coverPath: "./covers/5.jpg",
 	},
 	{
-		songName: "kuch na kari",
+		songName: "Kuch na kari",
 		filePath: "songs/kuch na kari.mp3",
 		coverPath: "./covers/6.jpg",
 	},
@@ -47,7 +47,7 @@ let songlist = [
 		coverPath: "./covers/9.jpg",
 	},
 	{
-		songName: "flute music",
+		songName: "Flute music",
 		filePath: "songs/flute music.mp3",
 		coverPath: "./covers/10.jpg",
 	},
@@ -59,7 +59,9 @@ let songItems = Array.from(document.getElementsByClassName("songItem"));
 let songPlay = new Audio(`./songs/Aise Kyun .mp3`);
 let forwardbtn= document.getElementById("forwardd")
 let backwardbtn= document.getElementById("backwardd")
+let bottom_songname = document.getElementsByClassName("itemInfo")[0].getElementsByTagName("span")[0];
 let filepath=0;
+let filename="";
 
 songItems.forEach((element, i) => {
 	element.getElementsByTagName("img")[0].src = songlist[i].coverPath;
@@ -73,6 +75,8 @@ forwardbtn.addEventListener("click",()=>{
 		else{
 			filepath+=1;
 		}
+		filename = songlist[filepath].songName;
+		bottom_songname.innerText = filename;
 		songPlay.src = songlist[filepath].filePath;
 		songPlay.currentTime = 0;
 		songPlay.play();
@@ -87,6 +91,8 @@ backwardbtn.addEventListener("click",()=>{
 		else{
 			filepath-=1;
 		}
+		filename = songlist[filepath].songName;
+		bottom_songname.innerText = filename;
 		songPlay.src = songlist[filepath].filePath;
 		songPlay.currentTime = 0;
 		songPlay.play();
@@ -98,8 +104,10 @@ backwardbtn.addEventListener("click",()=>{
 songItems.forEach((element,i) => {
 	element.addEventListener("click", (e) => {
 
-        filepath = songlist[parseInt(e.target.id)].filePath;
-        songPlay.src = filepath ;
+        filepath =parseInt(e.target.id) ;
+        songPlay.src = songlist[filepath].filePath;
+		filename = songlist[parseInt(e.target.id)].songName;
+		bottom_songname.innerText= filename;
         songPlay.currentTime=0;
         songPlay.play();
         masterplay.classList.add("fa-pause");
@@ -110,6 +118,10 @@ songItems.forEach((element,i) => {
 });
 
 masterplay.addEventListener("click", () => {
+	
+		filename = songlist[filepath].songName;
+		bottom_songname.innerText = filename;
+
 	if (songPlay.paused || songPlay.currentTime <= 0) {
 		songPlay.play();
 		masterplay.classList.remove("fa-play");
