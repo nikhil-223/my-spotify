@@ -125,3 +125,12 @@ img[alt="gif"]{
     font-size: 1.6rem;
 }
 
+.songList h1{
+	padding: 0 0 0 2rem;
+}
+
+/* @media only screen and (max-width:500px) {
+	:root{
+		font-size: 8px;
+	}
+} */
