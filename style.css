@@ -51,7 +51,7 @@ nav ul li {
 	padding: 1rem;
 	display: flex;
 	margin: 1.4rem auto;
-	width: 70%;
+	width: 70vw;
 	background: url(music.jpeg);
 	background-size: cover;
 }
@@ -79,7 +79,7 @@ nav ul li {
 	initial-value: 0;
 }
 .songList {
-    width: 30%;
+    width: 40rem;
 }
 .songItem {
 	height: 3.2rem;
