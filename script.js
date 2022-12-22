@@ -62,6 +62,9 @@ let backwardbtn= document.getElementById("backwardd")
 let bottom_songname = document.getElementsByClassName("itemInfo")[0].getElementsByTagName("span")[0];
 let filepath=0;
 let filename="";
+if(screen.width<=500){
+   bottom_songname.innerText="";
+}
 
 songItems.forEach((element, i) => {
 	element.getElementsByTagName("img")[0].src = songlist[i].coverPath;
@@ -76,7 +79,11 @@ forwardbtn.addEventListener("click",()=>{
 			filepath+=1;
 		}
 		filename = songlist[filepath].songName;
-		bottom_songname.innerText = filename;
+		if (screen.width <= 500) {
+			bottom_songname.innerText = "";
+		} else {
+			bottom_songname.innerText = filename;
+		}
 		songPlay.src = songlist[filepath].filePath;
 		songPlay.currentTime = 0;
 		songPlay.play();
@@ -92,7 +99,11 @@ backwardbtn.addEventListener("click",()=>{
 			filepath-=1;
 		}
 		filename = songlist[filepath].songName;
-		bottom_songname.innerText = filename;
+		if (screen.width <= 500) {
+			bottom_songname.innerText = "";
+		} else {
+			bottom_songname.innerText = filename;
+		}
 		songPlay.src = songlist[filepath].filePath;
 		songPlay.currentTime = 0;
 		songPlay.play();
@@ -106,8 +117,12 @@ songItems.forEach((element,i) => {
 
         filepath =parseInt(e.target.id) ;
         songPlay.src = songlist[filepath].filePath;
-		filename = songlist[parseInt(e.target.id)].songName;
-		bottom_songname.innerText= filename;
+		filename = songlist[filepath].songName;
+		if (screen.width <= 500) {
+			bottom_songname.innerText = "";
+		} else {
+			bottom_songname.innerText = filename;
+		}
         songPlay.currentTime=0;
         songPlay.play();
         masterplay.classList.add("fa-pause");
@@ -118,9 +133,13 @@ songItems.forEach((element,i) => {
 });
 
 masterplay.addEventListener("click", () => {
-	
-		filename = songlist[filepath].songName;
+	filename = songlist[filepath].songName;
+	if (screen.width <= 500) {
+		bottom_songname.innerText = "";
+	}
+	else{
 		bottom_songname.innerText = filename;
+	}
 
 	if (songPlay.paused || songPlay.currentTime <= 0) {
 		songPlay.play();
