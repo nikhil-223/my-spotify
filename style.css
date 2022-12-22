@@ -117,7 +117,7 @@ img[alt="gif"]{
  transition: 0.5s ease-in;
 }
 .itemInfo{
-    position: absolute;
+	position: absolute;
     display: flex;
     align-items: center;
     left: 10vw;
@@ -127,6 +127,10 @@ img[alt="gif"]{
 
 .songList h1{
 	padding: 0 0 0 2rem;
+}
+.itemInfo span{
+
+	font-family: "Varela Round", sans-serif;
 }
 
 /* @media only screen and (max-width:500px) {
