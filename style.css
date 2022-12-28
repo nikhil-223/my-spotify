@@ -109,6 +109,8 @@ span:nth-child(2){
 }
 .songItemContainer{
     padding-top:1rem ;
+	display: grid;
+	grid-template-columns: auto auto ;
 }
 img[alt="gif"]{
  width: 5rem;

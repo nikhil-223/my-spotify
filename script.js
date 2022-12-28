@@ -51,6 +51,21 @@ let songlist = [
 		filePath: "songs/flute music.mp3",
 		coverPath: "./covers/10.jpg",
 	},
+	{
+		songName: "Flute music",
+		filePath: "songs/flute music.mp3",
+		coverPath: "./covers/10.jpg",
+	},
+	{
+		songName: "Flute music",
+		filePath: "songs/flute music.mp3",
+		coverPath: "./covers/10.jpg",
+	},
+	{
+		songName: "Flute music",
+		filePath: "songs/flute music.mp3",
+		coverPath: "./covers/10.jpg",
+	},
 ];
 let gif = document.getElementById("gif");
 let masterplay = document.getElementById("masterplay");
